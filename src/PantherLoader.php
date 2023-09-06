@@ -2,6 +2,39 @@
 
 namespace Cacing69\CqueryPantherLoader;
 
-class PantherLoader {
+use Cacing69\Cquery\Loader;
+use Cacing69\Cquery\Trait\HasGetWithDomCrawlerMethod;
+use Cacing69\Cquery\Support\Collection;
+use Symfony\Component\DomCrawler\Crawler;
+use Symfony\Component\Panther\Client;
 
+class PantherLoader extends Loader {
+    use HasGetWithDomCrawlerMethod;
+    protected $isRemote = true;
+
+    public function __construct(string $content = null, $isRemote = true)
+    {
+        $this->isRemote = $isRemote;
+        $this->uri = $content;
+    }
+
+    protected function fetchCrawler()
+    {
+        // i need to install chromedriver from app manager
+        $this->client = Client::createChromeClient();
+
+        $this->client->request('GET', $this->uri);
+
+        $this->client->takeScreenshot("capture.png");
+
+        $this->crawler = $this->client->getCrawler();
+
+        if($this->callbackOnContentLoaded) {
+            $_callbackOnContentLoaded = $this->callbackOnContentLoaded;
+
+            $this->client->takeScreenshot("capture-callback.png");
+            $this->client = $_callbackOnContentLoaded($this->client, $this->crawler);
+            $this->crawler = $this->client->getCrawler();
+        }
+    }
 }
