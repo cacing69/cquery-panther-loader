@@ -22,17 +22,11 @@ class PantherLoader extends Loader {
     {
         // i need to install chromedriver from app manager
         $this->client = Client::createChromeClient();
-
         $this->client->request('GET', $this->uri);
-
-        $this->client->takeScreenshot("capture.png");
-
         $this->crawler = $this->client->getCrawler();
 
         if($this->callbackOnContentLoaded) {
             $_callbackOnContentLoaded = $this->callbackOnContentLoaded;
-
-            $this->client->takeScreenshot("capture-callback.png");
             $this->client = $_callbackOnContentLoaded($this->client, $this->crawler);
             $this->crawler = $this->client->getCrawler();
         }
