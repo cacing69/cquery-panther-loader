@@ -3,6 +3,7 @@
 namespace Cacing69\Cquery\Test;
 
 use Cacing69\Cquery\Cquery;
+use Cacing69\CqueryPantherLoader\PantherLoader;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\BrowserKit\HttpBrowser;
 use Symfony\Component\DomCrawler\Crawler;
@@ -25,6 +26,21 @@ final class CquerypantherLoaderTest extends TestCase
                 ]);
                 return $browser;
             })
+            ->from("html")
+            ->define(
+                "title as title",
+            )
+            ->get();
+
+        $this->assertSame("Kabupaten Sambas - Wikipedia bahasa Indonesia, ensiklopedia bebas", $result[0]["title"]);
+    }
+
+    public function testLoaderPanther()
+    {
+        $data = new Cquery(WIKIPEDIA);
+
+        $result = $data
+            ->useLoader(PantherLoader::class)
             ->from("html")
             ->define(
                 "title as title",
