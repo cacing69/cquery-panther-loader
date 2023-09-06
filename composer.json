@@ -1,0 +1,35 @@
+{
+  "name": "cacing69/cquery-panther-loader",
+  "description": "Cquery PHP Scraping with Panther Client Loader",
+  "keywords": [
+    "php",
+    "scraping",
+    "crawling"
+  ],
+  "type": "library",
+  "license": "MIT",
+  "homepage": "https://github.com/cacing69/cquery-panther-loader",
+  "autoload": {
+    "psr-4": {
+      "Cacing69\\CqueryPantherLoader\\": "src/"
+    },
+    "exclude-from-classmap": [
+            "/tests/"
+        ]
+  },
+  "authors": [
+    {
+      "name": "Ibnul Mutaki",
+      "email": "ibnuul@gmail.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "php": "^7.2|^8.1"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^8.0|^9.0|^10.0",
+    "friendsofphp/php-cs-fixer": "^3.4",
+    "symfony/var-dumper": "^5.4|^6.4"
+  }
+}
