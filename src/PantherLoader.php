@@ -4,8 +4,6 @@ namespace Cacing69\CqueryPantherLoader;
 
 use Cacing69\Cquery\Loader;
 use Cacing69\Cquery\Trait\HasGetWithDomCrawlerMethod;
-use Cacing69\Cquery\Support\Collection;
-use Symfony\Component\DomCrawler\Crawler;
 use Symfony\Component\Panther\Client;
 
 class PantherLoader extends Loader {
