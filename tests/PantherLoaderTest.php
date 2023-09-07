@@ -14,7 +14,7 @@ define("WIKIPEDIA", "https://id.wikipedia.org/wiki/Halaman_Utama");
 define("QUOTE_TO_SCRAPE_JS", "http://quotes.toscrape.com/js/");
 define("OSU_EDU_SEARH_JOHN_MILLER", "https://www.osu.edu/search/?query=John%20Miller&view=people");
 
-final class CquerypantherLoaderTest extends TestCase
+final class PantherLoaderTest extends TestCase
 {
     public function testFormSearchOnWikipedia()
     {
