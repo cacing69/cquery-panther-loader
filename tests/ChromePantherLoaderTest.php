@@ -3,7 +3,7 @@
 namespace Cacing69\Cquery\Test;
 
 use Cacing69\Cquery\Cquery;
-use Cacing69\CqueryPantherLoader\PantherLoader;
+use Cacing69\CqueryPantherLoader\ChromePantherLoader;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\BrowserKit\HttpBrowser;
 use Symfony\Component\DomCrawler\Crawler;
@@ -14,7 +14,7 @@ define("WIKIPEDIA", "https://id.wikipedia.org/wiki/Halaman_Utama");
 define("QUOTE_TO_SCRAPE_JS", "http://quotes.toscrape.com/js/");
 define("OSU_EDU_SEARH_JOHN_MILLER", "https://www.osu.edu/search/?query=John%20Miller&view=people");
 
-final class PantherLoaderTest extends TestCase
+final class ChromePantherLoaderTest extends TestCase
 {
     public function testFormSearchOnWikipedia()
     {
@@ -40,7 +40,7 @@ final class PantherLoaderTest extends TestCase
 
     public function testLoaderPantherScrapeQuotesLoadedByJs()
     {
-        $data = new Cquery(QUOTE_TO_SCRAPE_JS, PantherLoader::class);
+        $data = new Cquery(QUOTE_TO_SCRAPE_JS, ChromePantherLoader::class);
 
         $result = $data
             ->from(".container")
@@ -54,7 +54,7 @@ final class PantherLoaderTest extends TestCase
 
     public function testLoaderWithWaitForVisibilityPanther()
     {
-        $data = new Cquery(OSU_EDU_SEARH_JOHN_MILLER, PantherLoader::class);
+        $data = new Cquery(OSU_EDU_SEARH_JOHN_MILLER, ChromePantherLoader::class);
 
         $result = $data
             ->onContentLoaded(function (Client $client) {
