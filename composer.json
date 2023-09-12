@@ -26,7 +26,6 @@
   "minimum-stability": "dev",
   "require": {
     "php": "^7.2|^8.1",
-    "cacing69/cquery": "^1.2",
     "symfony/panther": "^1.1|^2.1"
   },
   "require-dev": {
