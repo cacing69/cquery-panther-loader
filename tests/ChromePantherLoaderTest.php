@@ -13,6 +13,7 @@ use Symfony\Component\Panther\Client;
 define("WIKIPEDIA", "https://id.wikipedia.org/wiki/Halaman_Utama");
 define("QUOTE_TO_SCRAPE_JS", "http://quotes.toscrape.com/js/");
 define("OSU_EDU_SEARH_JOHN_MILLER", "https://www.osu.edu/search/?query=John%20Miller&view=people");
+define("FACEBOOK_ADS", "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=US&q=power%20tools&search_type=keyword_unordered&media_type=all");
 
 final class ChromePantherLoaderTest extends TestCase
 {
